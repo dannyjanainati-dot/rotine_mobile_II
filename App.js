@@ -1,11 +1,23 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import React from 'react';
+import { View, Text, StyleSheet, Alert } from 'react-native';
+import { Botao } from './components/Botao';
+import { Cartao } from './components/Cartao';
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
+      <Text style={styles.titulo}>Teste dos Componentes</Text>
+
+      <Cartao
+        titulo="Estudar React Native"
+        subtitulo="📚 Estudos • 🔴 Alta • Hoje"
+        onPress={() => Alert.alert('Cartão clicado!')}
+      />
+
+      <Botao
+        titulo="+ Nova Tarefa"
+        onPress={() => Alert.alert('Botão clicado!')}
+      />
     </View>
   );
 }
@@ -13,8 +25,15 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
+    backgroundColor: '#F4F6F9',
+    padding: 20,
     justifyContent: 'center',
+  },
+  titulo: {
+    fontSize: 22,
+    fontWeight: 'bold',
+    marginBottom: 20,
+    textAlign: 'center',
+    color: '#333',
   },
 });
